@@ -2,17 +2,17 @@
 
 interface HeaderProps {
     title: string;
-    subTitle?: string;
+    subtitle?: string;
     center?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, subTitle, center }) => {
+const Heading: React.FC<HeaderProps> = ({ title, subtitle, center }) => {
     return (
         <div className={`${center ? "text-center" : "text-start"} `}>
             <div className="text-2xl font-bold">{title}</div>
-            <div className="text-neutral-500 font-light mt-2">{subTitle}</div>
+            <div className="text-neutral-500 font-light mt-2">{subtitle}</div>
         </div>
     );
 };
 
-export default Header;
+export default Heading;

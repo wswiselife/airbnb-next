@@ -1,35 +1,48 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/navbar/Navbar";
-import ClientOnly from "./components/ClientOnly";
-import RegisterModal from "./components/modals/RegisterModal";
-import LoginModal from "./components/modals/LoginModal";
-import { Toaster } from "react-hot-toast";
+import { Nunito } from 'next/font/google'
 
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from '@/app/components/navbar/Navbar';
+import LoginModal from '@/app/components/modals/LoginModal';
+import RegisterModal from '@/app/components/modals/RegisterModal';
+// import SearchModal from '@/app/components/modals/SearchModal';
+import RentModal from '@/app/components/modals/RentModal';
 
-export const metadata: Metadata = {
-    title: "Airbnb",
-    description: "Airbnb clone 20240229",
-};
+import ToasterProvider from '@/app/providers/ToasterProvider';
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    return (
-        <html lang="en">
-            <body className={inter.className}>
-                <ClientOnly>
-                    <Toaster />
-                    <RegisterModal />
-                    <LoginModal />
-                    <Navbar />
-                </ClientOnly>
-                {children}
-            </body>
-        </html>
-    );
+import './globals.css'
+import ClientOnly from './components/ClientOnly';
+import getCurrentUser from './actions/getCurrentUser';
+
+export const metadata = {
+  title: 'Airbnb',
+  description: 'Airbnb Clone',
+}
+
+const font = Nunito({ 
+  subsets: ['latin'], 
+});
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const currentUser = await getCurrentUser();
+
+  return (
+    <html lang="en">
+      <body className={font.className}>
+        <ClientOnly>
+          <ToasterProvider />
+          <LoginModal />
+          <RegisterModal />
+          {/* <SearchModal /> */}
+          <RentModal />
+          <Navbar currentUser={currentUser} />
+        </ClientOnly>
+        <div className="pb-20 pt-28">
+          {children}
+        </div>
+      </body>
+    </html>
+  )
 }

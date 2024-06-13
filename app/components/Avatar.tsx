@@ -1,20 +1,23 @@
 // createtime 2024-03-05
 
-"use client";
+'use client';
 
-import React from "react";
 import Image from "next/image";
-import avatar from "@/public/images/placeholder.jpg";
 
-export default function Avatar() {
-    return (
-        <div>
-            <Image
-                src={avatar}
-                alt="Avatar"
-                width="30"
-                height="30"
-                className="rounded-full"></Image>
-        </div>
-    );
+interface AvatarProps {
+  src: string | null | undefined;
 }
+
+const Avatar: React.FC<AvatarProps> = ({ src }) => {
+  return ( 
+    <Image 
+      className="rounded-full" 
+      height="30" 
+      width="30" 
+      alt="Avatar" 
+      src={src || '/images/placeholder.jpg'}
+    />
+   );
+}
+ 
+export default Avatar;
