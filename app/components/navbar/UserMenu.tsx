@@ -59,7 +59,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             cursor-pointer
           "
         >
-          Airbnb your home
+          发布房源
         </div>
         <div 
         onClick={toggleOpen}
@@ -104,39 +104,39 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {currentUser ? (
               <>
                 <MenuItem 
-                  label="My trips" 
+                  label="我的足迹" 
                   onClick={() => router.push('/trips')}
                 />
                 <MenuItem 
-                  label="My favorites" 
+                  label="我的喜欢" 
                   onClick={() => router.push('/favorites')}
                 />
                 <MenuItem 
-                  label="My reservations" 
+                  label="我的预约" 
                   onClick={() => router.push('/reservations')}
                 />
                 <MenuItem 
-                  label="My properties" 
+                  label="我的房子" 
                   onClick={() => router.push('/properties')}
                 />
                 <MenuItem 
-                  label="Airbnb your home" 
+                  label="发布房源" 
                   onClick={rentModal.onOpen}
                 />
                 <hr />
                 <MenuItem 
-                  label="Logout" 
+                  label="退出登录" 
                   onClick={() => signOut()}
                 />
               </>
             ) : (
               <>
                 <MenuItem 
-                  label="Login" 
+                  label="登录" 
                   onClick={loginModal.onOpen}
                 />
                 <MenuItem 
-                  label="Sign up" 
+                  label="注册" 
                   onClick={registerModal.onOpen}
                 />
               </>

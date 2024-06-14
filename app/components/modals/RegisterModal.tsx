@@ -64,8 +64,8 @@ const RegisterModal= () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome to Airbnb"
-        subtitle="Create an account!"
+        title="欢迎来到 Airbnb"
+        subtitle="注册账号"
       />
       <Input
         id="email"
@@ -100,13 +100,13 @@ const RegisterModal= () => {
       <hr />
       <Button 
         outline 
-        label="Continue with Google"
+        label="使用 Google 账号"
         icon={FcGoogle}
         onClick={() => signIn('google')} 
       />
       <Button 
         outline 
-        label="Continue with Github"
+        label="使用 Github 账号"
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
@@ -118,7 +118,7 @@ const RegisterModal= () => {
           font-light
         "
       >
-        <p>Already have an account?
+        <p>已经有账号?
           <span 
             onClick={onToggle} 
             className="
@@ -126,7 +126,7 @@ const RegisterModal= () => {
               cursor-pointer 
               hover:underline
             "
-            > Log in</span>
+            >登录</span>
         </p>
       </div>
     </div>
@@ -136,8 +136,8 @@ const RegisterModal= () => {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Register"
-      actionLabel="Continue"
+      title="注册"
+      actionLabel="注册"
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

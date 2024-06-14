@@ -117,7 +117,7 @@ const RentModal = () => {
       return 'Create'
     }
 
-    return 'Next'
+    return '下一步'
   }, [step]);
 
   const secondaryActionLabel = useMemo(() => {
@@ -125,14 +125,14 @@ const RentModal = () => {
       return undefined
     }
 
-    return 'Back'
+    return '上一步'
   }, [step]);
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
-        title="Which of these best describes your place?"
-        subtitle="Pick a category"
+        title="以下哪一个最能描述您的所在地？"
+        subtitle="选择一个类别"
       />
       <div 
         className="
@@ -163,8 +163,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Where is your place located?"
-          subtitle="Help guests find you!"
+          title="你的住处在哪儿？"
+          subtitle="帮助客人找到您！"
         />
         <CountrySelect 
           value={location} 
@@ -179,28 +179,28 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Share some basics about your place"
-          subtitle="What amenitis do you have?"
+          title="分享一些关于您住所的基本信息"
+          subtitle="你们有什么便利设施？"
         />
         <Counter 
           onChange={(value) => setCustomValue('guestCount', value)}
           value={guestCount}
-          title="Guests" 
-          subtitle="How many guests do you allow?"
+          title="客人" 
+          subtitle="您允许多少位客人？"
         />
         <hr />
         <Counter 
           onChange={(value) => setCustomValue('roomCount', value)}
           value={roomCount}
-          title="Rooms" 
-          subtitle="How many rooms do you have?"
+          title="客房" 
+          subtitle="你们有多少个房间？"
         />
         <hr />
         <Counter 
           onChange={(value) => setCustomValue('bathroomCount', value)}
           value={bathroomCount}
-          title="Bathrooms" 
-          subtitle="How many bathrooms do you have?"
+          title="浴室" 
+          subtitle="你们有多少个浴室？"
         />
       </div>
     )
@@ -210,8 +210,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Add a photo of your place"
-          subtitle="Show guests what your place looks like!"
+          title="添加您住所的照片"
+          subtitle="向客人展示您住所的样子！"
         />
         <ImageUpload
           onChange={(value) => setCustomValue('imageSrc', value)}
@@ -225,8 +225,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="How would you describe your place?"
-          subtitle="Short and sweet works best!"
+          title="您怎样描述您的住所？"
+          subtitle="简短而甜蜜的效果最好！"
         />
         <Input
           id="title"
@@ -274,7 +274,7 @@ const RentModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={rentModal.isOpen}
-      title="Airbnb your home!"
+      title="发布房源"
       actionLabel={actionLabel}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}

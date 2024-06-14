@@ -70,8 +70,8 @@ const LoginModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Welcome back"
-        subtitle="Login to your account!"
+        title="欢迎回来"
+        subtitle="登录你的账号"
       />
       <Input
         id="email"
@@ -98,19 +98,19 @@ const LoginModal = () => {
       <hr />
       <Button 
         outline 
-        label="Continue with Google"
+        label="使用 Google 登录"
         icon={FcGoogle}
         onClick={() => signIn('google')}
       />
       <Button 
         outline 
-        label="Continue with Github"
+        label="使用 Github 登录"
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>第一次使用 Airbnb？
           <span 
             onClick={onToggle} 
             className="
@@ -118,7 +118,7 @@ const LoginModal = () => {
               cursor-pointer 
               hover:underline
             "
-            > Create an account</span>
+            > 注册账号</span>
         </p>
       </div>
     </div>
@@ -128,8 +128,8 @@ const LoginModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
-      title="Login"
-      actionLabel="Continue"
+      title="登录"
+      actionLabel="登录"
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
